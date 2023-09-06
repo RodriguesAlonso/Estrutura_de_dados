@@ -1,0 +1,19 @@
+void Hash::deleteItem(Aluno aluno){
+    int startLocation = getHash(aluno);
+    int location = startLocation;
+    bool moreSearch = true;
+do
+{
+    if (structure[location].getRa() == aluno.getRa() || structure[location].getRa() == -1 )
+    {
+        moreSearch = false;
+    }else{
+        location = (location + 1) % max_item;
+    }
+    
+} while (startLocation != location && moreSearch);
+if (structure[location].getRa() == aluno.getRa())
+{
+    structure[location] = Aluno(-2,"");
+    length--;
+}
